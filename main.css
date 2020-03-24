@@ -1,6 +1,5 @@
 h1 {
     color: whitesmoke;
-    font-family: cursive;
 }
 
 #menu {
@@ -16,4 +15,12 @@ h1 {
     background-color: burlywood;
     z-index: 1;
     display: none;
+}
+
+#menu > div {
+    width: 80%;
+    margin: 10px auto;
+    height: 10%;
+    background-color: ghostwhite;
+    border: 2px solid black;
 }
