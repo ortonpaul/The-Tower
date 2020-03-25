@@ -115,7 +115,7 @@ function generateLevel() {
 }
 
 function generateShop() {
-    window.alert('You\'ve reached a shop!');
+    alertUser('You\'ve reached a shop!');
 }
 
 function finalBoss() {

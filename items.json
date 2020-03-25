@@ -1,0 +1,5 @@
+// A list of items and their buffs to attack, defense, and speed respectively
+
+let items = {
+    'Common Sword': [5, 0, 0]
+}

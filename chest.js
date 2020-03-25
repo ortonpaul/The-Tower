@@ -8,8 +8,8 @@ class Chest extends Cell {
     }
 
     open() {
-        player.inventory['gold'] += this.gold;
-        window.alert('The chest contained ' + this.gold + ' gold!\nYou now have ' + player.inventory['gold'] + ' gold.');
+        player.gold += this.gold;
+        window.alert('The chest contained ' + this.gold + ' gold!\nYou now have ' + player.gold + ' gold.');
         grid[this.index].type = 'cell';
     }
 }

@@ -1,30 +1,39 @@
-function Player(i, j) {
-    this.i = i;
-    this.j = j;
-    this.index = getIndex(this.i, this.j);
-    this.health = 100;
-    this.attack = 10;
-    this.defense = 10;
-    this.speed = 10;
-    this.inventory = {
-        'gold': 50,
-        'weapon': null,
-        'item1': null,
-        'item2': null,
-        'item3': null,
-        'item4': null,
-        'item5': null,
-    };
-
-    this.show = function () {
+class Player {
+    constructor(i, j) {
+        this.i = i;
+        this.j = j;
+        this.index = getIndex(this.i, this.j);
+        this.health = 100;
+        this.attack = 10;
+        this.defense = 10;
+        this.speed = 10;
+        this.gold = 0;
+        this.inventory = {
+            'weapon': 'Common Sword',
+            'item1': null,
+            'item2': null,
+            'item3': null,
+            'item4': null,
+            'item5': null,
+        };
+        
+        this.armor = {
+            'head': null,
+            'chest': 'Leather Chestplate',
+            'legs': 'Leather Pants',
+            'feet': 'Leather Boots'
+        };
+    }
+    
+    show() {
         let x = this.i * w;
         let y = this.j * w;
         noStroke();
         fill(0, 0, 255, 100);
         rect(x, y, w, w);
-    };
+    }
 
-    this.move = function (direction) {
+    move(direction) {
         let location = grid[this.index];
         if(location.type == 'enemy') {
             alertUser('You can\'t run from an enemy!');
@@ -54,9 +63,9 @@ function Player(i, j) {
             
             this.index = getIndex(this.i, this.j);
         } 
-    };
+    }
 
-    this.lookAround = function () {
+    lookAround() {
         let location = grid[this.index];
         if (!location.walls[0]) {
             grid[getIndex(this.i, this.j - 1)].visible = true;
@@ -70,9 +79,9 @@ function Player(i, j) {
         if (!location.walls[3]) {
             grid[getIndex(this.i - 1, this.j)].visible = true;
         }
-    };
+    }
 
-    this.interact = function () {
+    interact() {
         let thisSpace = grid[this.index];
 
         switch (thisSpace.type) {
@@ -104,5 +113,13 @@ function Player(i, j) {
             default:
                 break;
         }
-    };
+    }
+    
+    getAttack() {        
+        return this.attack + items[this.inventory['weapon']][0];; 
+    }
+    
+    getDefense() {
+        return this.defense;
+    }
 }
