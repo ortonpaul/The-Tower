@@ -110,12 +110,20 @@ function generateLevel() {
         while (enemy.type != 'cell') {
             enemy = grid[randomIndex()];
         }
-        enemy.type = 'enemy';
+        grid[enemy.index] = new Enemy(enemy.i, enemy.j, enemy.walls);
     }
 }
 
 function generateShop() {
     window.alert('You\'ve reached a shop!');
+}
+
+function finalBoss() {
+    
+}
+
+function gameOver() {
+    alertUser('GAME OVER');
 }
 
 function getIndex(i, j) {

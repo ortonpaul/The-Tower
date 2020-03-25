@@ -7,7 +7,7 @@ class Chest extends Cell {
         this.item = 0; 
     }
 
-    openChest() {
+    open() {
         player.inventory['gold'] += this.gold;
         window.alert('The chest contained ' + this.gold + ' gold!\nYou now have ' + player.inventory['gold'] + ' gold.');
         grid[this.index].type = 'cell';

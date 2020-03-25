@@ -94,14 +94,11 @@ function Player(i, j) {
                 break;
 
             case 'chest':
-                thisSpace.openChest();
+                thisSpace.open();
                 break;
 
             case 'enemy':
-                let damage = floor(random(16));
-                alertUser('You beat the enemy but took ' + damage + ' damage');
-                thisSpace.type = 'cell';
-                player.health -= damage;
+                thisSpace.battle();
                 break;
 
             default:
